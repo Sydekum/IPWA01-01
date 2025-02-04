@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CO₂-Emissionen nach Land</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      width: 50px;
+      height: auto;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    nav {
+      background-color: #444;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    main h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    main p {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 10px 15px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Spezifische Tabellen-Stile */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f4f4f4;
+      cursor: pointer;
+    }
+
+    input {
+      padding: 5px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let dataCache = [];
+      // Speichert für jede Spalte die aktuelle Sortierrichtung (true = aufsteigend, false = absteigend).
+      let sortDirections = {};
+      // Mapping: Spaltenindex → Schlüssel im JSON-Datensatz
+      const sortKeys = ["kontinent", "land", "branche", "unternehmen", "emissionen"];
+
+      fetch('data/emissions.json')
+              .then(response => response.json())
+              .then(data => {
+                dataCache = data;
+                renderTable(getFilteredData());
+              });
+
+      // Liest die aktuell gesetzten Filter aus und gibt die gefilterten Daten zurück.
+      function getFilteredData() {
+        const filters = [
+          document.getElementById("filterKontinent").value.toLowerCase(),
+          document.getElementById("filterLand").value.toLowerCase(),
+          document.getElementById("filterBranche").value.toLowerCase(),
+          document.getElementById("filterUnternehmen").value.toLowerCase(),
+          document.getElementById("filterEmissionen").value
+        ];
+
+        return dataCache.filter(item => {
+          return (
+                  (!filters[0] || item.kontinent.toLowerCase().includes(filters[0])) &&
+                  (!filters[1] || item.land.toLowerCase().includes(filters[1])) &&
+                  (!filters[2] || item.branche.toLowerCase().includes(filters[2])) &&
+                  (!filters[3] || item.unternehmen.toLowerCase().includes(filters[3])) &&
+                  (!filters[4] || parseFloat(item.emissionen.replace(/[^0-9,.]/g, "").replace(",", ".")) >= parseFloat(filters[4] || 0))
+          );
+        });
+      }
+
+      // Rendert die Tabelle anhand der übergebenen Daten.
+      function renderTable(data) {
+        const tableBody = document.querySelector("#emissionTable tbody");
+        tableBody.innerHTML = "";
+        data.forEach(item => {
+          const row = `<tr>
+                        <td>${item.kontinent}</td>
+                        <td>${item.land}</td>
+                        <td>${item.branche}</td>
+                        <td>${item.unternehmen}</td>
+                        <td>${item.emissionen}</td>
+                      </tr>`;
+          tableBody.innerHTML += row;
+        });
+      }
+
+      // Filtert die Daten und rendert die Tabelle.
+      function filterTable() {
+        renderTable(getFilteredData());
+      }
+
+      /**
+       * sortTable sortiert die aktuell gefilterten Daten anhand des Spalten-Indexes.
+       * @param {number} index - Spaltenindex.
+       * @param {boolean} numeric - true, wenn numerisch sortiert werden soll (für Emissionen).
+       * @param {boolean} ascending - Sortierrichtung (true = aufsteigend, false = absteigend).
+       */
+      function sortTable(index, numeric = false, ascending = true) {
+        let sortedData = getFilteredData();
+        const key = sortKeys[index];
+        const factor = ascending ? 1 : -1;
+        sortedData.sort((a, b) => {
+          let valA = a[key];
+          let valB = b[key];
+
+          if (numeric || key === "emissionen") {
+            // Entferne unerwünschte Zeichen und konvertiere Komma in Punkt
+            valA = parseFloat(valA.replace(/[^0-9,.]/g, "").replace(",", ".")) || 0;
+            valB = parseFloat(valB.replace(/[^0-9,.]/g, "").replace(",", ".")) || 0;
+          } else {
+            valA = valA.toLowerCase();
+            valB = valB.toLowerCase();
+          }
+          if (valA > valB) return 1 * factor;
+          if (valA < valB) return -1 * factor;
+          return 0;
+        });
+        renderTable(sortedData);
+      }
+
+      // Binde die Filterfelder an die Filterfunktion.
+      document.querySelectorAll(".filter-input").forEach(input => {
+        input.addEventListener("input", filterTable);
+      });
+
+      // Sortier-Event: Es werden nur die Zellen der ersten Kopfzeile (ohne Filterzeile) berücksichtigt.
+      document.querySelectorAll("thead tr:first-child th").forEach((th, index) => {
+        th.addEventListener("click", () => {
+          // Sortierrichtung toggeln
+          sortDirections[index] = sortDirections[index] === undefined ? true : !sortDirections[index];
+          sortTable(index, index === 4, sortDirections[index]);
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<header>
+  <img src="images/logo.png" alt="Logo">
+  <h1>CO₂-Watch</h1>
+</header>
+
+<nav>
+  <a href="index.html">Startseite</a>
+  <a href="about.html">Über uns</a>
+  <a href="emissiondata.html">Emissionskarte</a>
+  <a href="contact.html">Kontakt</a>
+</nav>
+
+<main>
+  <h1>CO₂-Emissionen nach Land</h1>
+  <table id="emissionTable">
+    <thead>
+    <tr>
+      <th>Kontinent</th>
+      <th>Land</th>
+      <th>Branche</th>
+      <th>Unternehmen</th>
+      <th>Emissionen in Tonnen</th>
+    </tr>
+    <tr>
+      <th><input type="text" id="filterKontinent" class="filter-input" placeholder="Filter..."></th>
+      <th><input type="text" id="filterLand" class="filter-input" placeholder="Filter..."></th>
+      <th><input type="text" id="filterBranche" class="filter-input" placeholder="Filter..."></th>
+      <th><input type="text" id="filterUnternehmen" class="filter-input" placeholder="Filter..."></th>
+      <th><input type="number" id="filterEmissionen" class="filter-input" placeholder="Min. Emissionen"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td colspan="5">Daten werden geladen...</td>
+    </tr>
+    </tbody>
+  </table>
+</main>
+
+<footer>
+  <p>&copy; 2025 CO₂-Watch | <a href="imprint.html" style="color: white; text-decoration: none;">Impressum</a> | <a href="datasecurity.html" style="color: white; text-decoration: none;">Datenschutz</a></p>
+</footer>
+</body>
+</html>

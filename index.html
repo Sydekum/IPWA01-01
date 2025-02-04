@@ -3,22 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C02-Footprint der Länder</title> <!-- Titel der Website -->
+    <title>CO2-Footprint der Länder</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        header img {
+            width: 50px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        nav {
+            background-color: #444;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        main h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        main p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 10px 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 <header>
-    <img src="images/logo.png" alt="Logo von Mein Projekt">
+    <img src="images/logo.png" alt="Logo" style="width: 100px; height: auto;">
+    <h1>CO₂-Watch</h1>
 </header>
 
+<nav>
+    <a href="index.html">Startseite</a>
+    <a href="about.html">Über uns</a>
+    <a href="emissiondata.html">Emissionskarte</a>
+    <a href="contact.html">Kontakt</a>
+</nav>
 
 <main>
-    <h1>Willkommen auf meiner Website</h1>
-    <p>Hier steht der Inhalt deiner Seite.</p>
+    <h1>Willkommen bei CO₂-Watch – Transparenz für unseren Planeten 🌍</h1>
+    <h2>Unsere Mission</h2>
+    <p>CO₂-Watch ist eine unabhängige Non-Profit-Organisation, die sich der Bereitstellung transparenter und zugänglicher Daten zu den CO₂-Emissionen von Ländern und Unternehmen widmet. Wir glauben daran, dass Wissen der erste Schritt zur Veränderung ist – deshalb bieten wir eine Plattform, die aktuelle und verlässliche Informationen über die globalen Emissionen bereitstellt.</p>
+
+    <h2>Was bieten wir?</h2>
+    <ul>
+        <li>🔍 <strong>Interaktive Karten & Diagramme</strong> – Entdecken Sie die CO₂-Emissionen verschiedener Länder auf einen Blick.</li>
+        <li>📊 <strong>Daten & Analysen</strong> – Nutzen Sie unsere umfangreiche Datenbank mit filter- und sortierbaren Tabellen zu Emissionswerten.</li>
+        <li>📢 <strong>Aufklärung & Handlungsmöglichkeiten</strong> – Erfahren Sie, wie Sie als Einzelperson oder Unternehmen Emissionen reduzieren können.</li>
+        <li>🤝 <strong>Community & Engagement</strong> – Treten Sie unserer Bewegung bei und setzen Sie sich für eine klimaneutrale Zukunft ein.</li>
+    </ul>
+
+    <h2>Entdecken Sie die Welt der CO₂-Daten</h2>
+    <p>👉 Nutzen Sie unsere interaktive Weltkarte, um Emissionswerte verschiedener Länder zu vergleichen.</p>
+    <p>👉 Analysieren Sie Trends über die letzten Jahre hinweg – welche Nationen machen Fortschritte, welche nicht?</p>
+    <p>👉 Erfahren Sie mehr über Unternehmen und Industrien, die den größten CO₂-Fußabdruck hinterlassen.</p>
+
+    <h2>Gemeinsam für den Klimaschutz</h2>
+    <p>Jede Tonne eingespartes CO₂ zählt! Durch Wissen und bewusste Entscheidungen können wir als Gesellschaft den Wandel gestalten. Bleiben Sie informiert, engagieren Sie sich und werden Sie Teil der Lösung.</p>
+
+    <p>📩 <strong>Abonnieren Sie unseren Newsletter</strong> für die neuesten Berichte und Updates!</p>
+    <p>📢 <strong>Folgen Sie uns auf Social Media</strong> und diskutieren Sie mit unserer Community!</p>
+
+    <h3>🌱 CO₂-Watch – Transparenz schafft Verantwortung.</h3>
 </main>
 
 <footer>
-    <p>&copy; 2025 Mein Projekt</p>
+    <p>&copy; 2025 CO₂-Watch | <a href="imprint.html" style="color: white; text-decoration: none;">Impressum</a> | <a href="datasecurity.html" style="color: white; text-decoration: none;">Datenschutz</a></p>
 </footer>
 </body>
 </html>

@@ -1,0 +1,184 @@
+[
+  {
+    "kontinent": "Europa",
+    "land": "Deutschland",
+    "emissionen": "800 Mio.",
+    "branche": "Industrie",
+    "unternehmen": "Müller Stahlwerke GmbH"
+  },
+  {
+    "kontinent": "Asien",
+    "land": "China",
+    "emissionen": "10 Mrd.",
+    "branche": "Kohleenergie",
+    "unternehmen": "Beijing Energy Corp"
+  },
+  {
+    "kontinent": "Nordamerika",
+    "land": "USA",
+    "emissionen": "5 Mrd.",
+    "branche": "Verkehr",
+    "unternehmen": "American Transport Inc."
+  },
+  {
+    "kontinent": "Europa",
+    "land": "Frankreich",
+    "emissionen": "300 Mio.",
+    "branche": "Energieproduktion",
+    "unternehmen": "EDF Power France"
+  },
+  {
+    "kontinent": "Asien",
+    "land": "Indien",
+    "emissionen": "2,5 Mrd.",
+    "branche": "Kohleenergie",
+    "unternehmen": "Tata Power Ltd."
+  },
+  {
+    "kontinent": "Afrika",
+    "land": "Südafrika",
+    "emissionen": "500 Mio.",
+    "branche": "Bergbau",
+    "unternehmen": "Johannesburg Mining Corp"
+  },
+  {
+    "kontinent": "Europa",
+    "land": "Italien",
+    "emissionen": "400 Mio.",
+    "branche": "Verkehr",
+    "unternehmen": "Alitalia Logistics"
+  },
+  {
+    "kontinent": "Asien",
+    "land": "Japan",
+    "emissionen": "1,2 Mrd.",
+    "branche": "Industrie",
+    "unternehmen": "Toyota Manufacturing"
+  },
+  {
+    "kontinent": "Südamerika",
+    "land": "Brasilien",
+    "emissionen": "800 Mio.",
+    "branche": "Landwirtschaft",
+    "unternehmen": "Amazonas AgriTech"
+  },
+  {
+    "kontinent": "Europa",
+    "land": "Spanien",
+    "emissionen": "350 Mio.",
+    "branche": "Energieproduktion",
+    "unternehmen": "Iberdrola Renewables"
+  },
+  {
+    "kontinent": "Asien",
+    "land": "Indonesien",
+    "emissionen": "1,1 Mrd.",
+    "branche": "Entwaldung",
+    "unternehmen": "Java Timber Corp"
+  },
+  {
+    "kontinent": "Afrika",
+    "land": "Nigeria",
+    "emissionen": "450 Mio.",
+    "branche": "Ölförderung",
+    "unternehmen": "Lagos Oil Ltd."
+  },
+  {
+    "kontinent": "Europa",
+    "land": "Polen",
+    "emissionen": "600 Mio.",
+    "branche": "Kohleenergie",
+    "unternehmen": "Katowice Coal Inc."
+  },
+  {
+    "kontinent": "Nordamerika",
+    "land": "Kanada",
+    "emissionen": "700 Mio.",
+    "branche": "Energieproduktion",
+    "unternehmen": "Hydro Quebec"
+  },
+  {
+    "kontinent": "Asien",
+    "land": "Saudi-Arabien",
+    "emissionen": "900 Mio.",
+    "branche": "Ölförderung",
+    "unternehmen": "Saudi Petroleum Group"
+  },
+  {
+    "kontinent": "Ozeanien",
+    "land": "Australien",
+    "emissionen": "600 Mio.",
+    "branche": "Kohleenergie",
+    "unternehmen": "Sydney Coal Ltd."
+  },
+  {
+    "kontinent": "Afrika",
+    "land": "Ägypten",
+    "emissionen": "300 Mio.",
+    "branche": "Verkehr",
+    "unternehmen": "Cairo Metro Co."
+  },
+  {
+    "kontinent": "Asien",
+    "land": "Vietnam",
+    "emissionen": "260 Mio.",
+    "branche": "Kohleenergie",
+    "unternehmen": "Hanoi Power Plant"
+  },
+  {
+    "kontinent": "Europa",
+    "land": "Niederlande",
+    "emissionen": "200 Mio.",
+    "branche": "Transport",
+    "unternehmen": "Dutch Railways BV"
+  },
+  {
+    "kontinent": "Südamerika",
+    "land": "Argentinien",
+    "emissionen": "230 Mio.",
+    "branche": "Landwirtschaft",
+    "unternehmen": "Pampa Agro SA"
+  },
+  {
+    "kontinent": "Asien",
+    "land": "Bangladesch",
+    "emissionen": "100 Mio.",
+    "branche": "Textilindustrie",
+    "unternehmen": "Dhaka Apparel Ltd."
+  },
+  {
+    "kontinent": "Europa",
+    "land": "Schweden",
+    "emissionen": "50 Mio.",
+    "branche": "Transport",
+    "unternehmen": "Scandinavian Freight"
+  },
+  {
+    "kontinent": "Afrika",
+    "land": "Äthiopien",
+    "emissionen": "90 Mio.",
+    "branche": "Landwirtschaft",
+    "unternehmen": "Addis Agri Corp"
+  },
+  {
+    "kontinent": "Nordamerika",
+    "land": "Mexiko",
+    "emissionen": "550 Mio.",
+    "branche": "Verkehr",
+    "unternehmen": "Mexico Transit SA"
+  },
+  {
+    "kontinent": "Europa",
+    "land": "Norwegen",
+    "emissionen": "40 Mio.",
+    "branche": "Ölförderung",
+    "unternehmen": "Oslo Oil Group"
+  },
+  {
+    "kontinent": "Asien",
+    "land": "Pakistan",
+    "emissionen": "270 Mio.",
+    "branche": "Landwirtschaft",
+    "unternehmen": "Lahore Agri"
+  }
+]
